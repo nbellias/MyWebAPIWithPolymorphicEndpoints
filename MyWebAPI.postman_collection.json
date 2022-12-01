@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "b671de23-8d78-49e1-a70a-ea163c540bbd",
+		"name": "MyWebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5725288"
+	},
+	"item": [
+		{
+			"name": "Create an object",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Id\": 2,\r\n    \"name\": \"Maria\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5072/api/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find an object",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5072/api/my/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an object",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\": 231,\r\n        \"name\": \"Takis\"\r\n    },\r\n    \"success\": true,\r\n    \"message\": \"OK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5072/api/my/0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an object with PATCH",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5072/api/my/0?message=hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my",
+						"0"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an object with PATCH Alternative",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5072/api/my/0?message=hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my",
+						"0"
+					],
+					"query": [
+						{
+							"key": "message",
+							"value": "hello"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an object",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Nikos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5072/api/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5072",
+					"path": [
+						"api",
+						"my"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
