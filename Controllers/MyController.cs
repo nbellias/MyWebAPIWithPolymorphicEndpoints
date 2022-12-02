@@ -51,25 +51,42 @@ namespace MyWebAPIWithPolymorphicEndpoints.Controllers
         public void Update(int listIndex, [FromBody] MyRequestObject value)
         {
             MyList[listIndex] = value.Data;
+        }
 
+        // PUT api/<MyController>/upd/5?message=Hello&myDecimal=2345.567
+        // PUT uses a lot of bandwidth
+        [HttpPut("upd/{listIndex}")]
+        public void Update(int listIndex, [FromQuery] string message, [FromQuery] decimal myDecimal)
+        {
+            MyList[listIndex] = new
+            {
+                message = message,
+                aDecimal = myDecimal
+            };
         }
 
         // PATCH api/<MyController>/5?message=hello
         // PATCH uses a small amount of bandwidth
         // Use when you want to update only a part of an object
         [HttpPatch("{listIndex}")]
-        public void Update(int listIndex, [FromQuery]string message)
+        public void Update(int listIndex, [FromQuery] string message)
         {
-            MyList[listIndex] = message;
+            MyList[listIndex] = new
+            {
+                message = message
+            };
         }
 
         // PATCH api/<MyController>/5/234
         // PATCH uses a small amount of bandwidth
         // Use when you want to update only a part of an object
         [HttpPatch("{listIndex}/{aNumber}")]
-        public void Update(int listIndex, int aNumber)
+        public void Update(int listIndex, decimal aNumber)
         {
-            MyList[listIndex] = aNumber;
+            MyList[listIndex] = new
+            {
+                aNumber = aNumber
+            };
         }
 
         // DELETE api/<MyController>/5
