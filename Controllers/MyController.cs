@@ -2,6 +2,7 @@
 using MyWebAPIWithPolymorphicEndpoints.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Dynamic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,7 +12,32 @@ namespace MyWebAPIWithPolymorphicEndpoints.Controllers
     [ApiController]
     public class MyController : ControllerBase
     {
-        public static List<dynamic> MyList = new List<dynamic>();
+        // List of dynamic JSON values of Employees
+        private static List<dynamic> MyList = new List<dynamic>()
+        {
+            new
+            {
+                id = 1,
+                name = "John",
+                age = 30,
+                salary = 30000
+            },
+            new
+            {
+                id = 2,
+                name = "Mary",
+                age = 25,
+                salary = 25000
+            },
+            new
+            {
+                id = 3,
+                name = "Peter",
+                age = 28,
+                salary = 28000
+            }
+        };
+
 
         // GET: api/<MyController>
         [HttpGet]
@@ -24,7 +50,16 @@ namespace MyWebAPIWithPolymorphicEndpoints.Controllers
         [HttpGet("{listIndex}")]
         public dynamic Retrieve(int listIndex)
         {
-            return MyList[listIndex];
+            try
+            {
+                return MyList[listIndex];
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+            
         }
 
         // GET api/<MyController>/5/6
